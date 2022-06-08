@@ -15,7 +15,6 @@
 
 # [Tests][url-tests]
 
-
 # License
 
 The MIT License (MIT)
