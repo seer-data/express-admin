@@ -120,6 +120,8 @@ function render (req, res, args, ddata, pager, order, next) {
     ];
     res.locals.collapsed = args.filter.show;
     res.locals.or = args.filter.or;
+    res.locals.searchText = args.filter.searchText;
+	res.locals.searchEnabled = !!args.config.searchColumns;
 
     res.locals.columns = ddata.columns;
     res.locals.records = ddata.records;
@@ -131,6 +133,6 @@ function render (req, res, args, ddata, pager, order, next) {
         column:     'listview/column',
         pagination: 'pagination'
     };
-    
+
     next();
 }
