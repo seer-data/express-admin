@@ -26,9 +26,19 @@
     </div>
     {{/have}}
     <div class="panel-footer form-horizontal">
+		{{#searchEnabled}}
+			<div class="form-group">
+				<label class="control-label col-lg-4 col-md-4 col-sm-4" for="searchText">{{string.search}}</label>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<input type="text" name="searchText" id="searchText" value="{{searchText}}" class="form-control" />
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+				</div>
+			</div>
+		{{/searchEnabled}}
         <div class="form-group">
-            <label class="control-label col-lg-3 col-md-3 col-sm-3">{{string.order}}</label>
-            <div class="col-lg-3 col-md-3 col-sm-3">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4">{{string.order}}</label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <select name="order" class="chosen-select form-control" data-placeholder="{{string.select}}">
                     <option value="" {{#selected}}selected="selected"{{/selected}}></option>
                     {{#order}}
@@ -36,18 +46,20 @@
                     {{/order}}
                 </select>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 {{#direction}}
                 <label class="radio-inline">
                     <input type="radio" name="direction" value="{{value}}" {{#selected}}checked="checked"{{/selected}} /> {{text}}
                 </label>
                 {{/direction}}
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <button type="submit" class="btn btn-default form-control" name="action[filter]">{{string.filter}}</button>
-                <button type="submit" class="btn btn-default form-control" name="action[clear]">{{string.clear}}</button>
-            </div>
         </div>
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4">
+				<button type="submit" class="btn btn-default form-control" name="action[filter]">{{string.filter}}</button>
+				<button type="submit" class="btn btn-default form-control" name="action[clear]">{{string.clear}}</button>
+			</div>
+		</div>
     </div>
     <input type="hidden" name="_csrf" value="{{csrf}}" />
 </form>
